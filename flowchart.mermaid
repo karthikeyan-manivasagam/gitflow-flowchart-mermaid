@@ -11,15 +11,15 @@ flowchart TD
     L("Hot fixes development")
 
     %% Edge connections between nodes
-    B --> |Developer starts by new branch| A
-    A-->|merge to Develop| B --> | Developer create Release branch | C --> | On suceessfull testing | D
-    E --> | In case of bug found in release branch developer directly commit to this branch | C 
-    C --> | Back Merge Bug fixed in release branch to | B
-    D --> | On successfull deployment | G
-    D --> | Creates hotfix branch to fix issue found post release | H
-    H --> | & merge back to master | D
-    D --> | Tag next minor version | K
-    L --> H
+    B --> |1. Developer starts by new branch| A
+    A-->|2. merge to Develop| B --> | 3. Developer create Release branch | C --> | 6. On suceessfull testing | D
+    E --> | 4. In case of bug found in release branch developer directly commit to this branch | C 
+    C --> | 5. Back Merge Bug fixed in release branch to | B
+    D --> | 7. On successfull deployment | G
+    D --> | 8. Creates hotfix branch to fix issue found post release | H
+    H --> | 10. & merge back to master | D
+    D --> | 11. Tag next minor version | K
+    L --> | 9. developer commits to hotfix branch | H 
     
     
     %% Labels for clarity
