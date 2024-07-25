@@ -1,0 +1,27 @@
+sequenceDiagram
+    autonumber
+
+    participant Dev as Developer
+    participant B as develop
+    participant A as feature/jira-01
+    participant C as release/v1.0.0
+    participant D as Master
+    participant E as Bug fixes development
+    participant G as Tag v1.0.0
+    participant H as hotfix/v1.0.1
+    participant K as Tag v1.0.1
+    participant L as Hot fixes development
+
+    Dev->>B: 1. starts by new branch
+    Dev->>A: checkout feature/jira-01
+    A-->>B: 2. merge to Develop
+    Dev->>C: 3. create Release branch
+    C-->>D: 6. On successful testing merge to Master
+    E->>C: 4. In case of bug found in release branch, commit to this branch
+    C-->>B: 5. Back-merge bug fixes to develop
+    D-->>G: 7. On successful deployment, tag v1.0.0
+    D-->>H: 8. Creates hotfix branch to fix issue found post release
+    L->>H: 9. developer commits to hotfix branch
+    H-->>D: 10. Merge back to master
+    D-->>K: 11. Tag next minor version
+    H-->>B: Merge back to develop branch
